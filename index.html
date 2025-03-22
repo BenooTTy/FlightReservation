@@ -1,0 +1,104 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flight Reservation</title>
+  <style>
+    body {
+      background-color: #0d1117;
+      color: #58a6ff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    h1 {
+      color: #58a6ff;
+    }
+    .btn {
+      background: #58a6ff;
+      color: #0d1117;
+      padding: 10px 20px;
+      border: none;
+      margin: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #1f6feb;
+    }
+    .section {
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid #58a6ff;
+      border-radius: 8px;
+      width: 300px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0;
+      border: none;
+      border-radius: 4px;
+    }
+    .output {
+      background: #161b22;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 4px;
+      min-height: 80px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Flight Reservation System</h1>
+
+  <div class="section">
+    <button class="btn" onclick="listFlights()">List Flights</button>
+    <div class="output" id="flightsOutput">Flight list will show here</div>
+  </div>
+
+  <div class="section">
+    <h3>Reserve Seat</h3>
+    <input type="text" id="flightNum" placeholder="Flight Number">
+    <input type="text" id="passengerName" placeholder="Passenger Name">
+    <input type="number" id="passportNum" placeholder="Passport Number">
+    <button class="btn" onclick="reserveSeat()">Reserve</button>
+    <div class="output" id="reserveOutput"></div>
+  </div>
+
+  <div class="section">
+    <button class="btn" onclick="viewMyReservations()">My Reservations</button>
+    <div class="output" id="myResOutput">Your reservations will show here</div>
+  </div>
+
+  <script>
+    function listFlights() {
+      document.getElementById('flightsOutput').innerText = 'Fetching flights... (connect to backend)';
+      // Simulate API call here
+    }
+
+    function reserveSeat() {
+      const flight = document.getElementById('flightNum').value;
+      const name = document.getElementById('passengerName').value;
+      const passport = document.getElementById('passportNum').value;
+
+      if (flight && name && passport) {
+        document.getElementById('reserveOutput').innerText = `Reserved seat for ${name} on ${flight} (Mock)`;
+        // Simulate reservation API call
+      } else {
+        document.getElementById('reserveOutput').innerText = 'Please fill in all fields';
+      }
+    }
+
+    function viewMyReservations() {
+      document.getElementById('myResOutput').innerText = 'Your booked flights: (Mock)';
+      // Simulate retrieving reservations here
+    }
+  </script>
+</body>
+</html>
